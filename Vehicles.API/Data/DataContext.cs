@@ -1,13 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Vehicles.API.Data.Entities;
 
 namespace Vehicles.API.Data
 {
-    public class DataContext : DbContext
+    public class DataContext : IdentityDbContext<User>
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
@@ -23,8 +20,8 @@ namespace Vehicles.API.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Brand>().HasIndex(x => x.Description).IsUnique();
             modelBuilder.Entity<DocumentType>().HasIndex(x => x.Description).IsUnique();
-            modelBuilder.Entity<VehicleType>().HasIndex(x => x.Description).IsUnique();
             modelBuilder.Entity<Procedure>().HasIndex(x => x.Description).IsUnique();
+            modelBuilder.Entity<VehicleType>().HasIndex(x => x.Description).IsUnique();
         }
     }
 }

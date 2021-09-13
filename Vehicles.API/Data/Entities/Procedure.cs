@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Vehicles.API.Data.Entities
 {
@@ -11,12 +7,12 @@ namespace Vehicles.API.Data.Entities
         public int Id { get; set; }
 
         [Display(Name = "Procedimiento")]
-        [MaxLength(20, ErrorMessage = "El campo {0} no puede tener mas de {1} carácteres.")]
+        [MaxLength(50, ErrorMessage = "El campo {0} no puede tener más de {1} carácteres.")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public string Description { get; set; }
 
         [Display(Name = "Precio")]
-        [DisplayFormat(DataFormatString ="{0:C2}")]
+        [DisplayFormat(DataFormatString = "{0:C2}")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public decimal Price { get; set; }
     }
